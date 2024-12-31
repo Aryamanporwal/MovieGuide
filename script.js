@@ -37,7 +37,7 @@ const showMovieData = (data) => {
 
     movieContainer.innerHTML = "";
     movieContainer.classList.remove('noBackground');
-
+    movieContainer.classList.add('movie-container');
 
 
     //use Destructing Assignment to extract properties from data oject
