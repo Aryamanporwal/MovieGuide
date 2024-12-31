@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+NZ:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+}
+
+body{
+    background-color:rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 0.881);
+}
+.logo img{
+    margin-top: -10px;
+    margin-right: 10px;
+}
+.logo h1{
+    margin-top: 10px;
+}
+.logo{
+    display: flex;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #fc72ff, #8f68ff, #487bff, #8f68ff, #fc72ff);
+    background-size: 200%;
+    background-clip: text;
+    font-size: 20px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+    
+}
+
+@keyframes animate-gradient{
+    to{
+        background-position: 200%;
+    }
+}
+
+/* navbar styling */
+nav{
+    background-color: black;
+    
+}
+
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px;
+    position: sticky;
+
+}
+
+.search-container input, button{
+    padding: 5px 10px;
+    border: none;
+    font-size: 16px;
+    background-color: #333;
+
+}
+
+
+.search-container input{
+    border-radius: 12px;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* search button  */
+.search-container button{
+    border-radius: 0 3px 3px 0;
+    /* background-color: #FFF; */
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    transition: all 0.2s;
+    border-radius: 10px;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search-container button::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+
+}
+
+.search-container button::before{
+    content: "";
+    background:linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00 , #48FF00,
+        #00FFD5, #002BFF, #FF00C8 , #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius:  10px;
+    opacity: 1;
+
+}
+
+@keyframes glowing {
+    0%{background-position: 0 0;}
+    50%{background-position: 400% 0;}
+    100%{background-position: 0 0;}
+}
+
+/* :hover */
+.search-container button:hover::before{
+    opacity:1;
+}
+.search-container button:active:after{
+    background: transparent;
+}
+search-container button:active{
+    color: #000;
+    font-weight: bold;
+}
+
+
+
+
+
+/* Main movie section styling */
+
+main{
+    max-width: 1200px;
+    margin : 0 auto;
+    margin-block: 38px;
+}
+
+main section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 72vh;
+}
+
+/* jo js se aa rha h uska styling */
+.movie-container{
+    display: flex;
+    justify-content: center;
+    background: #1c1f2b;
+    box-shadow: -3px 2px 64px blueviolet;
+    border-radius: 5px;
+    width: 80%;
+    color: white;
+    border: 2px solid white;
+}
+
+/* ------------------- */
+/* 
+movie ka border 
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits:false;
+}
+.movie-container ::after , .movie-container::before{
+    
+    content:'';
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:50%;
+    left:50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding:3px;
+    border-radius: 5px;
+    background-image: conic-gradient(from var(--angle), red , #00ff99, #006aff, #ff0095 , red) ;
+    
+    animation : 3s spin linear infinite;
+}
+
+.movie-container::before{
+    filter: blur(1.5em);
+    opacity:0.5;
+}
+
+@keyframes spin{
+    from{
+        --angle : 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+} 
+
+
+
+/* ------------------------------- */
+
+.movie-poster img{
+    height: 450px;
+    margin-right: 30px;
+    border-radius: 5px 0 0 5px;
+}
+
+.movie-info{
+    padding-inline: 15px;
+}
+
+
+/* movie-title */
+.movie-info h2{
+    text-align: center;
+    font-size: 32px;
+    margin: 20px 0 12px 0;
+
+}
+
+/* movie ki rating */
+.movie-info h2+p{
+    background-color: black;
+    text-align: center;
+}
+
+
+/* genre  */
+
+.movie-info .movie-genre{
+    display:flex;
+    justify-content: center;
+    margin-block:  5px;
+    overflow-x: auto;
+}
+.movie-info .movie-genre p{
+    background: #ffd000f5;
+    color: white;
+    padding: 5px 14px;
+    margin-inline: 5px;
+    border: 2px solid #ffd000f5;
+    border-radius: 6px;
+    font-weight: 700;
+    box-shadow: 0px 0px 10px #ffd000f5;
+}
+
+.movie-info p{
+    font-size: 18px;
+    margin-block: 16px;
+    line-height: 24px;
+    box-sizing: border-box;
+    border: 2px solid blueviolet;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 5px blueviolet;
+    background-color: black;
+    text-align: left;
+}
+
+/* movie na search ho toh uska bckg hata do  */
+.noBackground{
+    border: none;
+    background: none;
+    box-shadow: none;
+    display: flex;
+
+}
+
+.noBackground{
+    display: flex;
+
+}
+.noBackground h2{
+    margin-top: 60px;
+    color: blueviolet;
+
+}
+
+/* 
+
+
+
+/* footer styling   */
+.movie-not-found h2{
+    margin-top: 20px;
+    color: rgb(21, 34, 169);
+
+
+} 
+.movie-not-found video{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer{
+    text-align:left;
+    margin-left: 20px;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    padding-block: 20px;
+    margin-top: 40px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    line-height: 42px;
+}
+footer img{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+footer h3{
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+footer a{
+    color: rgba(255, 255, 255, 0.619);
+    font-size: 18px;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #8f68ff;
+}
+
+.one{
+    display: flex
+}
+.one img{
+    height: 25px;
+    width: 25px;
+    margin-top: 9px;
+    margin-right: 4px;
+}
+
+.two{
+    display: flex
+}
+.two img{
+    height: 25px;
+    width: 25px;
+    margin-top: 9px;
+    margin-right: 4px;
+}
+
+.three{
+    display: flex
+}
+.three img{
+    height: 25px;
+    width: 25px;
+    margin-top: 9px;
+    margin-right: 4px;
+}
+
+.four{
+    display: flex
+}
+.four img{
+    height: 25px;
+    width: 25px;
+    margin-top: 9px;
+    margin-right: 4px;
+}
+
+p{
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+    background-color: #1c1f2b;
+    padding-block: 18px;
+
+}
+
+/* Responsive code  */
+@media screen and (max-width:950px){
+    .movie-container{ 
+        flex-direction: column;
+    }
+    .noBackground{
+        
+        margin-left: 40px;
+        display: flex;
+        font-size: 12px;
+        color: blueviolet;
+        text-shadow: 2px #00FFD5;
+    }
+    .noBackground video{
+        margin-left: 70px;
+    }
+
+    .noBackground h2{
+        margin-top: 2px;
+        
+    }
+
+    .movie-poster img{
+        width: 100%;
+        height: fit-content;
+        margin-right: 0;
+    }
+
+    .movie-info{
+        padding-inline: 30px;
+    }
+}
+@media screen and (max-width:630px){
+        .navbar{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-container{
+            margin-top: 12px;
+        }
+        
+    }
+
+.movie-not-found{
+    margin-top: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.movie-not-found video{
+    width: 80%
+}
+.movie-not-found h1{
+    color: #6b6b6b;
+    font-size: 20px;
+    margin-block-end: 15px;
+    
+}
+
+
